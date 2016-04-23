@@ -75,12 +75,16 @@
     var dob = new Date(1976, 3, 24, 0, 0, 0, 0);
     var year = new Date().getFullYear();
     var birthday = new Date(2016, 3, 24, 0, 0, 0, 0);
-    if ((new Date().getMonth() > 3) || ((new Date().getMonth() == 3) && (new Date().getDate() > 24))) {
+    if ((today().getMonth() > 3) || ((today().getMonth() == 3) && (today().getDate() > 24))) {
         birthday = new Date(2017, 3, 24, 0, 0, 0, 0);
     }
+
     function today() {
-//        return new Date();
-        return new Date(2016, 3, 26, 1, 0, 0, 0);
+        return new Date();
+//        return new Date(2016, 3, 23, 0, 0, 0, 0);
+//        return new Date(2016, 3, 24, 0, 0, 0, 0);
+//        return new Date(2016, 3, 24, 1, 0, 0, 0);
+//        return new Date(2016, 3, 25, 0, 0, 0, 0);
     }
     function getAge() {
         var today_date = today();
@@ -100,7 +104,6 @@
     function countdown() {
         var t1 = today().valueOf() - birthday.valueOf();
         var hoursSinceBirthday = Math.floor((t1 / (1000 * 60 * 60)) % 24);
-        console.log(hoursSinceBirthday);
         if (hoursSinceBirthday > 0 && hoursSinceBirthday < 24) {
             document.getElementById("countdown").innerHTML = "Happy Birthday!!!!!!!11111";
             document.getElementById("countdown").style.fontSize = "70px";
@@ -108,7 +111,7 @@
             return;
         }
 
-        var t = birthday.valueOf() - today();
+        var t = birthday.valueOf() - today().valueOf();
         var seconds = Math.floor((t / 1000) % 60);
         var minutes = Math.floor((t / 1000 / 60) % 60);
         var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
@@ -122,7 +125,7 @@
         strOut += " " + minutes + " minute";
         if (minutes !== 1) strOut += "s";
 
-        strOut += " " + seconds + " second"
+        strOut += " " + seconds + " second";
         if (seconds !== 1) strOut += "s";
 
         strOut += " until his birthday";
