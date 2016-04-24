@@ -1,0 +1,27 @@
+body {
+    background-image: url("../img/circuitboard.jpg");
+}
+#question {
+    font-family: "Comic Sans MS",fantasy;
+    font-size: 32px;
+    font-style: italic;
+    color: #0000ff;
+}
+#age {
+    font-family: "Comic Sans MS",fantasy;
+    font-size: 70px;
+    font-style: inherit;
+    color: #00ff00;
+}
+#countdown {
+    font-family: "Serif",fantasy;
+    font-size: 70px;
+    color: #ff0000;
+}
+#call {
+    font-family: "Comic Sans MS",fantasy;
+    font-size: 32px;
+    font-style: italic;
+    text-decoration: underline;
+    color: #0000ff;
+}

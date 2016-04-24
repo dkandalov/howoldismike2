@@ -1,49 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<style>
-    body {
-        background-image: url("circuitboard.jpg");
-        background-image: ;
-    }
-    #question {
-        font-family: "Comic Sans MS",fantasy;
-        font-size: 32px;
-        font-style: italic;
-        color: #0000ff;
-    }
-    #age {
-        font-family: "Comic Sans MS",fantasy;
-        font-size: 70px;
-        font-style: inherit;
-        color: #00ff00;
-    }
-    #countdown {
-        font-family: "Serif",fantasy;
-        font-size: 70px;
-        color: #ff0000;
-    }
-    #call {
-        font-family: "Comic Sans MS",fantasy;
-        font-size: 32px;
-        font-style: italic;
-        text-decoration: underline;
-        color: #0000ff;
-    }
-</style>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>How old is Mike?</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="js/main.js"></script>
 </head>
 <body>
 <center>
-    <img src="point.gif">
+    <img src="img/point.gif">
     <span id="question">How old is Mike??!!!11111 :)))))))000</span>
     <br/>
     <br/>
     <br/>
-    <img src="hot.gif">
+    <img src="img/hot.gif">
     <span id="age"></span>
-    <img src="hot.gif">
+    <img src="img/hot.gif">
     <br/>
     <marquee width="800px" behavior="SCROLL" bgcolor="yellow" loop="2000"
              style="width: 800px; background-color: yellow;">
@@ -57,87 +29,25 @@
     <br/>
     <br/>
     <br/>
-    <img src="funstuff.gif">
-    <img src="funstuff.gif">
-    <img src="man-farting.gif">
-    <img src="man-farting.gif">
-    <img src="man-farting.gif">
-    <img src="funstuff.gif">
-    <img src="funstuff.gif">
+    <img src="img/funstuff.gif">
+    <img src="img/funstuff.gif">
+    <img src="img/man-farting.gif">
+    <img src="img/man-farting.gif">
+    <img src="img/man-farting.gif">
+    <img src="img/funstuff.gif">
+    <img src="img/funstuff.gif">
     <br/>
-    <img src="computer-01.gif">
-    <img src="floppy-05.gif">
-    <img src="counter.gif">
-    <img src="ie_logo.gif">
-    <img src="ns_logo.gif">
-    <img src="notepad.gif">
-    <img src="floppy-05.gif">
-    <img src="computer-01.gif">
+    <img src="img/computer-01.gif">
+    <img src="img/floppy-05.gif">
+    <img src="img/counter.gif">
+    <img src="img/ie_logo.gif">
+    <img src="img/ns_logo.gif">
+    <img src="img/notepad.gif">
+    <img src="img/floppy-05.gif">
+    <img src="img/computer-01.gif">
 </center>
 </body>
 <script>
-    var dob = new Date(1976, 3, 24, 0, 0, 0, 0);
-    var year = new Date().getFullYear();
-    var birthday = new Date(2016, 3, 24, 0, 0, 0, 0);
-    if ((today().getMonth() > 3) || ((today().getMonth() == 3) && (today().getDate() > 24))) {
-        birthday = new Date(2017, 3, 24, 0, 0, 0, 0);
-    }
-
-    function today() {
-        return new Date();
-//        return new Date(2016, 3, 23, 0, 0, 0, 0);
-//        return new Date(2016, 3, 24, 0, 0, 0, 0);
-//        return new Date(2016, 3, 24, 1, 0, 0, 0);
-//        return new Date(2016, 3, 25, 0, 0, 0, 0);
-    }
-    function getAge() {
-        var today_date = today();
-        var today_year = today_date.getFullYear();
-        var today_month = today_date.getMonth();
-        var today_day = today_date.getDate();
-        var age = today_year - 1976;
-
-        if (today_month < 3) {
-            age--;
-        }
-        if ((3 == today_month) && (today_day < 24)) {
-            age--;
-        }
-        document.getElementById("age").innerHTML = "Mike is " + age + " years old!";
-    }
-    function countdown() {
-        var t1 = today().valueOf() - birthday.valueOf();
-        var hoursSinceBirthday = Math.floor((t1 / (1000 * 60 * 60)) % 24);
-        if (hoursSinceBirthday > 0 && hoursSinceBirthday < 24) {
-            document.getElementById("countdown").innerHTML = "Happy Birthday!!!!!!!11111";
-            document.getElementById("countdown").style.fontSize = "70px";
-            document.body.style.backgroundImage = 'url("dancingbaby.gif")';
-            return;
-        }
-
-        var t = birthday.valueOf() - today().valueOf();
-        var seconds = Math.floor((t / 1000) % 60);
-        var minutes = Math.floor((t / 1000 / 60) % 60);
-        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-        var days = Math.floor(t / (1000 * 60 * 60 * 24));
-        var strOut = "" + days + " day";
-        if (days !== 1) strOut += "s";
-
-        strOut += " " + hours + " hour";
-        if (hours !== 1) strOut += "s";
-
-        strOut += " " + minutes + " minute";
-        if (minutes !== 1) strOut += "s";
-
-        strOut += " " + seconds + " second";
-        if (seconds !== 1) strOut += "s";
-
-        strOut += " until his birthday";
-        document.getElementById("countdown").innerHTML = strOut;
-    }
-    getAge();
-    countdown();
-    setInterval(countdown, 1000);
-
+    init();
 </script>
 </html>
