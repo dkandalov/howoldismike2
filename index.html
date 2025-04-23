@@ -72,48 +72,67 @@
 </center>
 </body>
 <script>
-    var dob = new Date(1976, 3, 24, 0, 0, 0, 0);
-    var year = new Date().getFullYear();
-    var birthday = new Date(2016, 3, 24, 0, 0, 0, 0);
-    if ((new Date().getMonth() > 3) || ((new Date().getMonth() == 3) && (new Date().getDate() > 24))) {
-        birthday = new Date(2017, 3, 24, 0, 0, 0, 0);
+    function getToday() {
+        return new Date();
+        // return new Date(2025, 3, 23, 23, 59, 0, 0);
+        // return new Date(2025, 3, 24, 0, 0, 0, 0);
     }
-    function today() {
-//        return new Date();
-        return new Date(2016, 3, 26, 1, 0, 0, 0);
-    }
-    function getAge() {
-        var today_date = today();
-        var today_year = today_date.getFullYear();
-        var today_month = today_date.getMonth();
-        var today_day = today_date.getDate();
-        var age = today_year - 1976;
 
-        if (today_month < 3) {
-            age--;
+    function getLastBirthday(birthDate, today) {
+        let result = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+        if (result > today) {
+            return new Date(today.getFullYear() - 1, birthDate.getMonth(), birthDate.getDate());
+        } else {
+            return result;
         }
-        if ((3 == today_month) && (today_day < 24)) {
-            age--;
+    }
+
+    function getNextBirthday(birthDate, today) {
+        let result = new Date(today.getFullYear(), birthDate.getMonth(), birthDate.getDate());
+        if (result >= today) {
+            return result;
+        } else {
+            return new Date(today.getFullYear() + 1, birthDate.getMonth(), birthDate.getDate());
         }
+    }
+
+    function hoursSince(date, today) {
+        const diffMs = today - date;
+        const hoursDiff = diffMs / (1000 * 60 * 60);
+        return Math.round(hoursDiff * 100) / 100;
+    }
+
+    function updateAge() {
+        const today_date = getToday();
+        const today_year = today_date.getFullYear();
+        const today_month = today_date.getMonth();
+        const today_day = today_date.getDate();
+        let age = today_year - 1976;
+
+        if (today_month < 3) age--;
+        if ((today_month === 3) && (today_day < 24)) age--;
+
         document.getElementById("age").innerHTML = "Mike is " + age + " years old!";
     }
-    function countdown() {
-        var t1 = today().valueOf() - birthday.valueOf();
-        var hoursSinceBirthday = Math.floor((t1 / (1000 * 60 * 60)) % 24);
-        console.log(hoursSinceBirthday);
-        if (true) {
+
+    function updateCountdown() {
+        const dob = new Date(1976, 3, 24, 0, 0, 0, 0);
+        let today = getToday();
+        if (hoursSince(getLastBirthday(dob, today), today) < 24) {
+            updateAge();
             document.getElementById("countdown").innerHTML = "Happy Birthday!!!!!!!11111";
             document.getElementById("countdown").style.fontSize = "70px";
             document.body.style.backgroundImage = 'url("dancingbaby.gif")';
             return;
         }
 
-        var t = birthday.valueOf() - today();
-        var seconds = Math.floor((t / 1000) % 60);
-        var minutes = Math.floor((t / 1000 / 60) % 60);
-        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-        var days = Math.floor(t / (1000 * 60 * 60 * 24));
-        var strOut = "" + days + " day";
+        const t = getNextBirthday(dob, today).valueOf() - today;
+        const seconds = Math.floor((t / 1000) % 60);
+        const minutes = Math.floor((t / 1000 / 60) % 60);
+        const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+        let strOut = "" + days + " day";
         if (days !== 1) strOut += "s";
 
         strOut += " " + hours + " hour";
@@ -125,12 +144,12 @@
         strOut += " " + seconds + " second"
         if (seconds !== 1) strOut += "s";
 
-        strOut += " until his birthday";
+        strOut += " until Mike's birthday";
         document.getElementById("countdown").innerHTML = strOut;
     }
-    getAge();
-    countdown();
-    setInterval(countdown, 1000);
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
 
 </script>
 </html>
