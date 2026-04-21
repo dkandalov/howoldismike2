@@ -1,8 +1,8 @@
 function init() {
-    var dob = new Date(1976, 3, 24, 0, 0, 0, 0);
-    var year = new Date().getFullYear();
-    var birthday = new Date(2016, 3, 24, 0, 0, 0, 0);
-    if ((today().getMonth() > 3) || ((today().getMonth() == 3) && (today().getDate() > 24))) {
+    const dob = new Date(1976, 3, 24, 0, 0, 0, 0);
+    const year = new Date().getFullYear();
+    let birthday = new Date(2026, 3, 24, 0, 0, 0, 0);
+    if ((today().getMonth() > 3) || ((today().getMonth() === 3) && (today().getDate() > 24))) {
         birthday = new Date(2017, 3, 24, 0, 0, 0, 0);
     }
 
@@ -13,31 +13,32 @@ function init() {
 
 function today() {
     return new Date();
-//        return new Date(2016, 3, 23, 0, 0, 0, 0);
-//        return new Date(2016, 3, 24, 0, 0, 0, 0);
-//        return new Date(2016, 3, 24, 1, 0, 0, 0);
-//        return new Date(2016, 3, 25, 1, 0, 0, 0);
+    //    return new Date(2026, 3, 23, 0, 0, 0, 0);
+    //    return new Date(2026, 3, 23, 23, 59, 59, 0);
+    //    return new Date(2026, 3, 24, 0, 0, 0, 0);
+    //    return new Date(2026, 3, 24, 1, 0, 0, 0);
+    //    return new Date(2026, 3, 25, 1, 0, 0, 0);
 }
 
 function getAge() {
-    var today_date = today();
-    var today_year = today_date.getFullYear();
-    var today_month = today_date.getMonth();
-    var today_day = today_date.getDate();
-    var age = today_year - 1976;
+    const today_date = today();
+    const today_year = today_date.getFullYear();
+    const today_month = today_date.getMonth();
+    const today_day = today_date.getDate();
+    let age = today_year - 1976;
 
     if (today_month < 3) {
         age--;
     }
-    if ((3 == today_month) && (today_day < 24)) {
+    if ((3 === today_month) && (today_day < 24)) {
         age--;
     }
     document.getElementById("age").innerHTML = "Mike is " + age + " years old!";
 }
 
 function countdown(birthday) {
-    var t1 = today().valueOf() - birthday.valueOf();
-    var hoursSinceBirthday = Math.floor((t1 / (1000 * 60 * 60)) % 24);
+    const t1 = today().valueOf() - birthday.valueOf();
+    const hoursSinceBirthday = Math.floor((t1 / (1000 * 60 * 60)) % 24);
     if (hoursSinceBirthday > 0 && hoursSinceBirthday < 24) {
         document.getElementById("countdown").innerHTML = "Happy Birthday!!!!!!!11111";
         document.getElementById("countdown").style.fontSize = "70px";
@@ -45,12 +46,12 @@ function countdown(birthday) {
         return;
     }
 
-    var t = birthday.valueOf() - today().valueOf();
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    var strOut = "" + days + " day";
+    const t = birthday.valueOf() - today().valueOf();
+    const seconds = Math.floor((t / 1000) % 60);
+    const minutes = Math.floor((t / 1000 / 60) % 60);
+    const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    const days = Math.floor(t / (1000 * 60 * 60 * 24));
+    let strOut = "" + days + " day";
     if (days !== 1) strOut += "s";
 
     strOut += " " + hours + " hour";
@@ -62,6 +63,6 @@ function countdown(birthday) {
     strOut += " " + seconds + " second";
     if (seconds !== 1) strOut += "s";
 
-    strOut += " until his birthday";
+    strOut += " until Mike's birthday";
     document.getElementById("countdown").innerHTML = strOut;
 }
