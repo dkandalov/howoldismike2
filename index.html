@@ -5,16 +5,31 @@
     <title>How old is Mike?</title>
     <link rel="stylesheet" href="css/main.css"/>
     <script src="js/main.js"></script>
+    <style>
+        @keyframes scrollBg {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+        body {
+            animation: scrollBg 20s linear infinite;
+        }
+    </style>
 </head>
 <body>
 <center>
     <img src="img/point.gif">
-    <span id="question">How old is Mike??!!!11111 :)))))))000</span>
+    <span id="question" class="rainbow">How old is Mike??!!!11111 :)))))))000</span>
+    <img src="img/point.gif" style="transform: scaleX(-1);">
     <br/>
     <br/>
+    <marquee behavior="alternate" scrollamount="10">
+        <img src="img/dancingbaby.gif">
+        <font size="7" color="red" face="Impact">!!!! WARNING !!!!</font>
+        <img src="img/dancingbaby.gif">
+    </marquee>
     <br/>
     <img src="img/hot.gif">
-    <span id="age"></span>
+    <span id="age" class="blink"></span>
     <img src="img/hot.gif">
     <br/>
     <marquee width="800px" behavior="SCROLL" bgcolor="yellow" loop="2000"
@@ -26,6 +41,7 @@
     <span id="call">If you are offline, call 01457601575 now</span>
     <br/>
     <br/>
+    <img src="img/noframes.gif">
     <br/>
     <br/>
     <br/>
@@ -45,6 +61,23 @@
     <img src="img/notepad.gif">
     <img src="img/floppy-05.gif">
     <img src="img/computer-01.gif">
+    <br/>
+    <font color="white">Best viewed in Netscape Navigator at 640x480 resolution</font>
+    <br/>
+    <img src="img/Bill_Gates.gif" id="bill">
+    <br/>
+    <br/>
+    <table border="1" bgcolor="#C0C0C0" cellpadding="10">
+        <tr>
+            <td>
+                <font face="MS Sans Serif" size="2">
+                    <b>Guestbook</b><br>
+                    <a href="#">Sign my guestbook!</a><br>
+                    <a href="#">View guestbook</a>
+                </font>
+            </td>
+        </tr>
+    </table>
 </center>
 </body>
 <script>

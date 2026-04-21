@@ -12,12 +12,12 @@ function init() {
 }
 
 function today() {
-    return new Date();
     //    return new Date(2026, 3, 23, 0, 0, 0, 0);
     //    return new Date(2026, 3, 23, 23, 59, 59, 0);
     //    return new Date(2026, 3, 24, 0, 0, 0, 0);
     //    return new Date(2026, 3, 24, 1, 0, 0, 0);
     //    return new Date(2026, 3, 25, 1, 0, 0, 0);
+    return new Date();
 }
 
 function getAge() {

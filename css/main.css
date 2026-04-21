@@ -25,3 +25,34 @@ body {
     text-decoration: underline;
     color: #0000ff;
 }
+
+.blink {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.rainbow {
+    animation: rainbow 2s linear infinite;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    15% { color: orange; }
+    30% { color: yellow; }
+    45% { color: green; }
+    60% { color: blue; }
+    75% { color: indigo; }
+    100% { color: violet; }
+}
+
+#bill {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 999;
+}
